@@ -5,7 +5,7 @@ import {
   displayPosts,
   likePost,
   deletePost,
- /* likesCountRef, */
+  likesCountRef,
 } from '../lib/firebase.js';
 
 // main route
@@ -300,18 +300,37 @@ const posts = () => {
   allPosts.setAttribute('id', 'allPosts');
   divPosts.appendChild(allPosts);
 
+  // funcion para filtrar por fecha
+
+  const filters = document.createElement('div');
+  filters.setAttribute('class', 'divfilter');
+  filters.innerHTML = ` 
+  <select id="filter" class="">
+  <option class="options" value="select">Filtrar por:</option>
+  <option class="options" value="recent">Más recientes</option>
+  <option class="options" value="oldest">Más antiguos</option>
+  </select>`;
+  inputMainContainer.appendChild(filters);
+
+  /*  const filterbyDate = document.createElement('option');
+  filterbyDate.setAttribute('value','filterdate');
+  filterbyDate.innerHTML = `
+  <option value="recent">Más recientes</option>
+  <option value="oldest">Más antiguos</option>`
+  filters.appendChild(filterbyDate); */
+
   // Función para traer todo los datos de los posts y creación de Div para contenerlos
   displayPosts().then(
     (value) => {
       console.log(value);
       value.forEach((doc) => {
-        const postIdentifier = doc.date;
+        const postIdentifier = doc.id;
         const divPostMain = document.createElement('div');
         divPostMain.setAttribute('id', postIdentifier);
         divPostMain.setAttribute('class', 'divPostMain');
         allPosts.appendChild(divPostMain);
         const divPostPic = document.createElement('div');
-        divPostPic.setAttribute('id', `${postIdentifier}pix`);
+        divPostPic.setAttribute('id', `${postIdentifier}-pic`);
         divPostPic.setAttribute('class', 'divPostPic');
         divPostMain.appendChild(divPostPic);
         const picUrl = document.createElement('img');
@@ -320,9 +339,6 @@ const posts = () => {
         picUrl.setAttribute('src', `${doc.pfp} `);
         divPostPic.appendChild(picUrl);
 
-        const likecitos = `${doc.likesCount} `;
-
-        
         //
         const divPostContent = document.createElement('div');
         divPostContent.setAttribute('class', 'contentBox');
@@ -330,7 +346,7 @@ const posts = () => {
 
         // DIV NOMBRE
         const postName = document.createElement('div');
-        const nameId = `${postIdentifier}name`;
+        const nameId = `${postIdentifier}-name`;
         postName.setAttribute('class', 'postName');
         postName.setAttribute('id', nameId);
         divPostContent.appendChild(postName);
@@ -338,7 +354,7 @@ const posts = () => {
 
         // DIV DATE
         const postDate = document.createElement('div');
-        const descDate = `${postIdentifier}date`;
+        const descDate = `${postIdentifier}-date`;
         postDate.setAttribute('id', descDate);
         postDate.setAttribute('class', 'postDate');
         divPostContent.appendChild(postDate);
@@ -385,11 +401,13 @@ const posts = () => {
         // Caroooo
         deletePosts.addEventListener('click', () => {
           const id = doc.id;
-          console.log('estes es el id', id);
+          const user = doc.uid;
+          console.log('este es el id', id);
+          console.log('este es el user', user);
           const deleteAlert = confirm('¿Estas seguro que quieres eliminar este post?');
-          if (deleteAlert == true) {
-            deletePost(id);
-            alert('se borro tu post');
+          if (deleteAlert == true && user == auth.currentUser.uid) {
+            deletePost(id, user);
+            alert('se borró tu post');
           } else {
             alert('post no eliminado!');
           }
@@ -397,7 +415,7 @@ const posts = () => {
 
         // DIV DESCRIPTION
         const postDesc = document.createElement('div');
-        const descId = `${postIdentifier}desc`;
+        const descId = `${postIdentifier}-desc`;
         postDesc.setAttribute('id', descId);
         postDesc.setAttribute('class', 'postDesc');
         divPostContent.appendChild(postDesc);
@@ -409,11 +427,17 @@ const posts = () => {
         divPostContent.appendChild(likeDiv);
 
         const likePosts = document.createElement('img');
-        // likePost.setAttribute('type', 'likecito')
         likePosts.setAttribute('class', 'emptyLike');
-        likePosts.setAttribute('id', 'btn-like');
+        if (`${doc.likes} `.includes(auth.currentUser.uid)) {
+          likePosts.classList.remove('emptyLike');
+          likePosts.setAttribute('class', 'fullLike');
+        }
+        likePosts.setAttribute('id', `${postIdentifier}-likeImg`);
         likePosts.setAttribute('src', './assets/heart.png');
         likeDiv.appendChild(likePosts);
+
+        const likecitos = `${doc.likes.length} `;
+        // console.log(likecitos);
 
         likePosts.addEventListener('click', (e) => {
           e.preventDefault();
@@ -422,19 +446,17 @@ const posts = () => {
           // img es el <3
           likePost(doc.id);
           const id = doc.id;
-          console.log(id)
-          likeCounter.textContent = '';
-          likeCounter.textContent += (parseInt(likecitos) + 1);
+          // console.log(id);
+          // likeCounter.textContent = '';
+          // likeCounter.textContent += likesCountActual;
         });
 
-
         const likeCounter = document.createElement('p');
-        likeCounter.setAttribute('id', 'likeCounter ');
+        likeCounter.setAttribute('id', `${postIdentifier}-count`);
         likeCounter.textContent += likecitos;
         likeDiv.appendChild(likeCounter);
-
-        //counter likecitos
-  
+        likesCountRef(doc.id);
+        // counter likecitos
 
         // COMMENTS
 
@@ -476,7 +498,6 @@ const posts = () => {
     e.preventDefault();
     const posts = document.getElementById('postInput').value;
     newPosts(posts);
-    inputForPost.innerHTML = '';
   });
 
   // Funcionalidad
