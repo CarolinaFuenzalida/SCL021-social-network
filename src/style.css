@@ -72,7 +72,7 @@ input::placeholder {
 #passwordContainer {
   /* Igual en Register */
   display: flex;
-  border: solid 1px #b1589b;
+  border: solid 1px #b1589b; 
   font-size: 15px;
   background: #5f5277;
   border-radius: 10px;
@@ -437,6 +437,7 @@ dialog + .backdrop {
 .fullLike{
   background-image: url(./assets/heart-filled.png);
 } 
+
 /* RESPONSIVE PANTALLAS GRANDES */
 @media only screen and (min-width: 990px) {
   body {
@@ -633,7 +634,7 @@ dialog + .backdrop {
     background-size: auto;
     background-attachment: fixed;
   }
-}
+
 /*FOOTER*/
 .footer {
   display: flex;
@@ -649,5 +650,28 @@ dialog + .backdrop {
   padding: 5px;
 }
 
+.options{
+  border: 0;
+  border-radius: 10px; 
+  background:  #251a3a; 
+  color: #fff;
+  width: 100px;
+  padding: 10px; 
+  border: solid 1px #5f5277;
+}
 
+#filter{
+  border: 0;
+  border-radius: 10px; 
+  background:  #251a3a; 
+  color: #fff;
+  width: 100px;
+  padding: 10px; 
+  border: solid 1px #5f5277;
+}
 
+.divfilter{
+ /*falta posicionar el fiv en la cosita abajo y que no este al lado */ 
+ display: flex; 
+ flex-direction: column;
+}
