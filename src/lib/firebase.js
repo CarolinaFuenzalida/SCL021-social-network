@@ -1,5 +1,11 @@
 /* eslint import/no-unresolved: [2, { ignore: ['gstatic'] }] */
 import {
+  getDatabase,
+  ref,
+  runTransaction,
+} from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js';
+
+import {
   getFirestore,
   arrayUnion,
   arrayRemove,
@@ -13,7 +19,6 @@ import {
   updateDoc,
   orderBy,
   onSnapshot,
-  where,
   deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 import {
@@ -29,12 +34,10 @@ import {
 } from './firebasemodules.js';
 
 import { app } from './firebaseconfig.js';
-import { div } from 'prelude-ls';
 
 // -----------Firebase Login autorización
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
-
 const getUserData = () => auth.currentUser;
 
 // let user = ;
@@ -113,6 +116,7 @@ const logOut = () => {
     // alert('tesalistes')
     .then(() => {
       window.location.hash = '#/login';
+      alert('adiosito! vuelve pronto');
     })
     .catch((error) => error);
 };
@@ -124,6 +128,7 @@ const signGoogle = () => {
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
+      alert('Bienvenidx!');
       // const token = credential.accessToken;
       // The signed-in user info.
       // const user = result.user;
@@ -134,6 +139,7 @@ const signGoogle = () => {
     .catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
+      alert('No fue posible ingresar con Google');
       // const errorMessage = error.message;
       // The email of the user's account used.
       // const email = error.customData.email;
@@ -150,11 +156,13 @@ const resetPass = (email, callback) => {
   sendPasswordResetEmail(auth, email)
     .then((userCredential) => {
       callback(true);
+      alert('Enviamos un correo, revisa tu carpeta de spam!');
       return userCredential;
       // console.log('entraste jeje');
     })
     .catch((error) => {
       callback(false);
+      alert('No es posible recuperar tu contrasena');
       // const errorCode = error.code;
       const errorMessage = error.message;
       return errorMessage;
@@ -180,14 +188,14 @@ const newPosts = async (textInput) => {
       pfp: user.photoURL,
     });
     console.log('Document written with ID: ', docRef.id);
+    location.reload();
     return docRef.uid;
   }
 };
-
 // ----------- Mostrar Posts
 
 const displayPosts = async () => {
-  const posts = query(collection(db, 'google'));
+  const posts = query(collection(db, 'google'), orderBy('date', 'desc'));
   const querySnapShot = await getDocs(posts);
   const todosPosts = [];
   querySnapShot.forEach((doc) => {
@@ -200,21 +208,21 @@ const displayPosts = async () => {
 
 const likePost = async (id) => {
   const postId = [id].toString();
-  console.log(postId);
+  // console.log(postId);
   let userIdentification = getUserData();
   userIdentification = userIdentification.uid;
   const postRef = doc(db, 'google', postId);
   console.log(postRef);
   const docPost = await getDoc(postRef);
   const dataLike = docPost.data();
-  const likesCount = dataLike.likesCount;
   if (dataLike.likes.includes(userIdentification)) {
     await updateDoc(
       postRef,
       {
         likes: arrayRemove(userIdentification),
       },
-      document.getElementById('btn-like').setAttribute('class', 'emptyLike')
+      document.getElementById(`${id}-likeImg`).setAttribute('class', 'emptyLike'),
+      console.log('dislike'),
     );
     console.log('docPost', docPost);
   } else {
@@ -223,31 +231,44 @@ const likePost = async (id) => {
       {
         likes: arrayUnion(userIdentification),
       },
-      document.getElementById('btn-like').classList.remove('class', 'emptyLike')
+      document.getElementById(`${id}-likeImg`).setAttribute('class', 'fullLike'),
+      console.log('like'),
     );
   }
-  await updateDoc(
-  postRef,{
-    likesCount: likes.length,
-  }
-  );
 };
 
-// ------------ Delete post ----------
+const likesCountRef = (id) => {
+  onSnapshot(doc(db, 'google', id), (doc) => {
+    const result = doc.data().likes.length;
+    const divNum = document.getElementById(`${id}-count`);
+    divNum.textContent = '';
+    divNum.textContent += result;
+    console.log(result);
+    return result;
+  });
+};
+
+// ------------ Delete post ----------/
 function deletePost(id) {
   deleteDoc(doc(db, 'google', id))
     .then(() => console.log('exito al borrar'))
     .catch((error) => console.log('error', error));
 }
+
+/* deleteDoc(doc(db, 'google', id))
+    .then(() => console.log('exito al borrar'))
+    .catch((error) => console.log('error', error)) */
+
 // ------------ Edit Post ------------
 
 /* const editPost = (id, newDescription) =>
   updateDoc(doc(db,'post', id) , newDescription) */
 
+// podria func
 /* function editPost(id) {
   updateDoc(doc(db, 'google', id))
   .then (() => console.log('ya puedes editar tu post'))
-  .catch ((error) => console.log ('no se pudo editar t', error))
+  .catch ((error) => console.log ('no se pudo editar', error))
 } */
 
 // ----------- Comment Post -------
@@ -269,5 +290,6 @@ export {
   displayPosts,
   likePost,
   deletePost,
-  /* getPostPic, */
+  likesCountRef,
+  // getPostPic,
 };
