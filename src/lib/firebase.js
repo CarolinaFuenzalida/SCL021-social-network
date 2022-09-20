@@ -40,8 +40,6 @@ const auth = getAuth();
 const provider = new GoogleAuthProvider();
 const getUserData = () => auth.currentUser;
 
-// let user = ;
-
 // -----------Ingresar con Email y contraseña
 const loginEmailPassword = (email, password, callback) => {
   signInWithEmailAndPassword(auth, email, password)
@@ -64,7 +62,7 @@ const loginEmailPassword = (email, password, callback) => {
       callback(false);
       return errorCode;
     });
-};
+}
 
 // ----------- Enviar correo de verificacion
 const emailVerification = () => {
@@ -72,9 +70,10 @@ const emailVerification = () => {
     /* alert(
       'Se ha enviado un mensaje de verificación a tu correo electrónico'); */
   });
-};
+}
 
 // -----------Registrarse con Email y Contraseña
+
 const registerEmailPassword = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -91,9 +90,10 @@ const registerEmailPassword = (email, password) => {
       // console.log(user);
       return errorCode;
     });
-};
+}
 
 // -------- Permite verificar si hay un usuario conectado
+
 const verification = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -107,7 +107,7 @@ const verification = () => {
     return 'not logged';
     // location.reload();
   });
-};
+}
 
 // -------------- Cerrar sesión
 
@@ -119,7 +119,7 @@ const logOut = () => {
       alert('adiosito! vuelve pronto');
     })
     .catch((error) => error);
-};
+}
 
 // ----------- Ingreso con Google
 
@@ -148,7 +148,7 @@ const signGoogle = () => {
       // ...
       return errorCode;
     });
-};
+}
 
 // ----------- Reestablecer contraseña olvidada
 
@@ -167,9 +167,29 @@ const resetPass = (email, callback) => {
       const errorMessage = error.message;
       return errorMessage;
     });
-};
+}
 
 const db = getFirestore();
+
+//pruebita de promesas Emi
+
+/*
+const resetPass = (email, callback) => {
+  sendPasswordResetEmail(auth, email)
+  new Promise (resolve, reject) => {
+    setTimeout(() => resolve(resetPass), 1000)
+    .then((userCredential) => {
+      callback(true);
+    alert('Enviamos un correo, revisa tu carpeta de spam!');
+    })
+    setTimeout(() => reject(resetPass), 1000)
+    .catch((error) => {
+      callback(false);
+      alert('No es posible recuperar tu contrasena');
+    
+    });
+  }
+   */ 
 
 // ----------- Guardar Posts
 
@@ -191,7 +211,8 @@ const newPosts = async (textInput) => {
     location.reload();
     return docRef.uid;
   }
-};
+}
+
 // ----------- Mostrar Posts
 
 const displayPosts = async () => {
@@ -249,31 +270,15 @@ const likesCountRef = (id) => {
 };
 
 // ------------ Delete post ----------/
+
 function deletePost(id) {
   deleteDoc(doc(db, 'google', id))
-    .then(() => console.log('exito al borrar'))
+    .then(() => location.reload())/*console.log('exito al borrar')) */
     .catch((error) => console.log('error', error));
 }
 
-/* deleteDoc(doc(db, 'google', id))
-    .then(() => console.log('exito al borrar'))
-    .catch((error) => console.log('error', error)) */
-
-// ------------ Edit Post ------------
-
-/* const editPost = (id, newDescription) =>
-  updateDoc(doc(db,'post', id) , newDescription) */
-
-// podria func
-/* function editPost(id) {
-  updateDoc(doc(db, 'google', id))
-  .then (() => console.log('ya puedes editar tu post'))
-  .catch ((error) => console.log ('no se pudo editar', error))
-} */
-
 // ----------- Comment Post -------
 
-/* wakala comentarios jijijijiji */
 
 export {
   db,
@@ -291,5 +296,4 @@ export {
   likePost,
   deletePost,
   likesCountRef,
-  // getPostPic,
 };

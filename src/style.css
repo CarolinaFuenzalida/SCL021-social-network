@@ -51,7 +51,7 @@ b:hover {
   background: transparent !important;
   border: none !important;
   width: 100% !important;
-  height: 100%; 
+  height: 100%;
 }
 input::placeholder {
   text-align: left;
@@ -72,7 +72,7 @@ input::placeholder {
 #passwordContainer {
   /* Igual en Register */
   display: flex;
-  border: solid 1px #b1589b; 
+  border: solid 1px #b1589b;
   font-size: 15px;
   background: #5f5277;
   border-radius: 10px;
@@ -104,7 +104,8 @@ input[type='checkbox'] {
 .mainContainer button:hover {
   background-color: #6980c7;
 }
-.registerContainer {/* Cajita de Registro */
+.registerContainer {
+  /* Cajita de Registro */
   background: #411946;
   border-radius: 5px;
   border: 1px solid #a85495;
@@ -126,7 +127,8 @@ a {
   text-decoration: none;
   padding-bottom: 15px;
 }
-dialog {/* Dialog Pop Up */
+dialog {
+  /* Dialog Pop Up */
   width: 100%;
   height: fit-content;
   margin: auto;
@@ -158,7 +160,8 @@ dialog + .backdrop {
   background-color: transparent;
   border: none;
 }
-.ojitocerrado {/* Show and Hide Password*/
+.ojitocerrado {
+  /* Show and Hide Password*/
   background-image: url(./assets/ojitosabiertos-blanco.png) !important;
   display: inline-block;
   background-size: contain !important;
@@ -314,7 +317,7 @@ dialog + .backdrop {
   height: 100%;
   width: 100%;
   border-radius: 100%;
-} 
+}
 .divPostContent {
   width: 85%;
   display: flex;
@@ -339,14 +342,14 @@ dialog + .backdrop {
 .postDate {
   display: flex;
   flex-direction: row;
-  justify-content:flex-end;
+  justify-content: flex-end;
   color: white;
   opacity: 80%;
   width: 65%;
   height: 40px;
   font-size: 10px;
   margin: 5px;
-  gap:5px;
+  gap: 5px;
 }
 .postDesc {
   color: white;
@@ -356,11 +359,11 @@ dialog + .backdrop {
   text-align: left;
   padding: 10px;
 }
-.edit{
+.edit {
   display: flex;
-  gap:4px;
+  gap: 4px;
 }
-.edit img{
+.edit img {
   height: 15px;
   width: 15px;
   gap: 5px;
@@ -369,7 +372,7 @@ dialog + .backdrop {
   display: flex;
   gap: 5px;
   margin: 5px;
-  gap:5px;
+  gap: 5px;
   width: -webkit-fill-available;
   height: 20px;
   justify-content: flex-end;
@@ -379,7 +382,8 @@ dialog + .backdrop {
   height: 25px;
   filter: invert(1);
 }
-.juegofav {/* TRENDS */
+.juegofav {
+  /* TRENDS */
   font-family: 'Do Hyeon', sans-serif;
   font-size: small;
 }
@@ -413,7 +417,7 @@ dialog + .backdrop {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px; 
+  margin: 20px;
 }
 .edit img {
   filter: invert(1);
@@ -431,12 +435,12 @@ dialog + .backdrop {
   padding-bottom: 30px;
   margin-top: 30px;
 }
-.emptyLike{
+.emptyLike {
   background-image: url(./assets/heart.png);
 }
-.fullLike{
+.fullLike {
   background-image: url(./assets/heart-filled.png);
-} 
+}
 
 /* RESPONSIVE PANTALLAS GRANDES */
 @media only screen and (min-width: 990px) {
@@ -470,10 +474,10 @@ dialog + .backdrop {
   .registerContainer {
     height: 100px;
   }
-  .transparent-input{
+  .transparent-input {
     font-size: 16px;
   }
-  .mainContainer button{
+  .mainContainer button {
     font-size: 15px;
   }
   /* Todo lo de Posts */
@@ -547,7 +551,7 @@ dialog + .backdrop {
   .allPosts {
     gap: 20px;
     margin-top: 10px;
-  } 
+  }
   .divPostMain {
     margin: auto;
     height: 300px !important;
@@ -562,7 +566,7 @@ dialog + .backdrop {
     width: 90px;
     align-self: center;
   }
-  #picUrl{
+  #picUrl {
     border: solid 1px #b1589b;
   }
   .divPostContent {
@@ -583,13 +587,13 @@ dialog + .backdrop {
     font-size: 15px;
     padding: 10px;
     align-items: center;
-    gap:10px;
+    gap: 10px;
   }
-   .edit{
-    display:flex;
+  .edit {
+    display: flex;
     flex-direction: row;
   }
-  .edit img{ 
+  .edit img {
     display: flex;
     gap: 5px;
     margin: 5px;
@@ -604,10 +608,10 @@ dialog + .backdrop {
     justify-content: space-between;
     padding: 5px;
   }
-  .likeIcons{
-    gap:15px;
+  .likeIcons {
+    gap: 15px;
   }
-  .icons{
+  .icons {
     width: 25px;
     height: 25px;
   }
@@ -623,8 +627,8 @@ dialog + .backdrop {
     background-color: #6980c7;
   }
   .postsContainer button {
-     padding: 15px;
-     margin: 5px;
+    padding: 15px;
+    margin: 5px;
   }
   .profilePicturePost {
     display: block;
@@ -634,7 +638,29 @@ dialog + .backdrop {
     background-size: auto;
     background-attachment: fixed;
   }
-
+  .options {
+    border: 0;
+    border-radius: 10px;
+    background: #251a3a;
+    color: #fff;
+    width: 100px;
+    padding: 10px;
+    border: solid 1px #5f5277;
+  }
+  #filter {
+    border: 0;
+    border-radius: 10px;
+    background: #251a3a;
+    color: #fff;
+    width: 100px;
+    padding: 10px;
+    border: solid 1px #5f5277;
+  }
+  .divfilter {
+    /*falta posicionar el fiv en la cosita abajo y que no este al lado */
+    width: 100%; 
+  }
+}
 /*FOOTER*/
 .footer {
   display: flex;
@@ -648,30 +674,4 @@ dialog + .backdrop {
   background-color: #251a3b;
   opacity: 90%;
   padding: 5px;
-}
-
-.options{
-  border: 0;
-  border-radius: 10px; 
-  background:  #251a3a; 
-  color: #fff;
-  width: 100px;
-  padding: 10px; 
-  border: solid 1px #5f5277;
-}
-
-#filter{
-  border: 0;
-  border-radius: 10px; 
-  background:  #251a3a; 
-  color: #fff;
-  width: 100px;
-  padding: 10px; 
-  border: solid 1px #5f5277;
-}
-
-.divfilter{
- /*falta posicionar el fiv en la cosita abajo y que no este al lado */ 
- display: flex; 
- flex-direction: column;
 }
