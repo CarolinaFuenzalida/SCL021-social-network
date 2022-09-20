@@ -1,13 +1,6 @@
 import {
-  auth, 
-  logOut, 
-  newPosts, 
-  displayPosts, 
-  likePost, 
-  deletePost
-} from '../lib/firebase.js';
-
-// main route
+  auth, logOut, newPosts, displayPosts, likePost, deletePost,
+} from './lib/firebase.js';
 
 // cerrar sesion
 const posts = () => {
@@ -296,9 +289,9 @@ const posts = () => {
   // Función para traer todo los datos de los posts y creación de Div para contenerlos
   displayPosts().then(
     (value) => {
-       console.log(value)
+      console.log(value);
       value.forEach((doc) => {
-        console.log("doc",doc)
+        console.log('doc', doc);
         const postIdentifier = doc.date;
         const divPostMain = document.createElement('div');
         divPostMain.setAttribute('id', postIdentifier);
@@ -397,7 +390,7 @@ const posts = () => {
         // Caroooo
         deletePosts.addEventListener('click', () => {
           const id = doc.id;
-          console.log("estes es el id",id);
+          console.log('estes es el id', id);
           const deleteAlert = confirm('¿Estas seguro que quieres eliminar este post?');
           if (deleteAlert == true) {
             deletePost(id);
@@ -405,7 +398,7 @@ const posts = () => {
           } else {
             alert('post no eliminado!');
           }
-        }); 
+        });
 
         // DIV DESCRIPTION
         const postDesc = document.createElement('div');
@@ -424,7 +417,7 @@ const posts = () => {
         // likePost.setAttribute('type', 'likecito')
         likePosts.setAttribute('class', 'emptyLike');
         likePosts.setAttribute('id', 'btn-like');
-        likePosts.setAttribute('src', './assets/heart.png')
+        likePosts.setAttribute('src', './assets/heart.png');
         likeDiv.appendChild(likePosts);
         likePosts.addEventListener('click', (e) => {
           e.preventDefault();
@@ -434,10 +427,8 @@ const posts = () => {
           likePost(doc.id);
         });
 
-
-
         // COMMENTS
-        
+
         const commentPosts = document.createElement('img');
         editedPosts.setAttribute('class', 'ico');
         commentPosts.setAttribute('id', 'btn-comment');
@@ -470,7 +461,7 @@ const posts = () => {
         // document.getElementById('allPosts').innerHTML = posteos;
       });
     } /* fin del post */,
-  )
+  );
 
   buttonPost.addEventListener('click', (e) => {
     e.preventDefault();
