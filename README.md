@@ -20,7 +20,6 @@
 
 
 
-// foticos del prototipado final jeje y prototipado baja fidelidad 
 ## Nuestro proyecto 😮💜🎉
 
 ### Prototipo de baja fidelidad 👌✨
