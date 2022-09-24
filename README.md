@@ -33,7 +33,19 @@ no sabo wey x2
 
 ### Prototipo de alta fidelidad 😊🔥
 
-Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las votaciones se eligieron colores en tonos morados y azules que pudiesen referenciar el marco gamer. 
+Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las votaciones se eligieron colores en tonos morados y azules que pudiesen referenciar el marco gamer.
 
-### Prototipo final 💜👾🎮
-  Para el último prototipado fue necesario ir iterando diseños hasta que pudimos cumplir con los diferentes requerimientos de los usuarios. 
+#### Versión móvil ####
+
+![image](https://user-images.githubusercontent.com/106553998/192071473-7b23e120-2acd-49ad-b506-e2ec4733c9a7.png)
+
+
+#### Versión de escritorio ####
+
+![image](https://user-images.githubusercontent.com/106553998/192071278-9bae4b81-0c02-4125-bd73-401b0d5c6d96.png)
+![image](https://user-images.githubusercontent.com/106553998/192071379-9291a031-4e31-479e-9b8d-885c11dbec19.png)
+
+
+### Versión final 💜👾🎮
+  Para el último prototipado fue necesario ir iterando diseños hasta que pudimos cumplir con los diferentes requerimientos de los usuarios.
+  
