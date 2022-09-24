@@ -48,7 +48,6 @@ Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las vot
 #### Versión móvil ####
 
 ![mobile (2)](https://user-images.githubusercontent.com/106553998/192072923-291bcb46-89bd-47b8-9531-8b21261c513a.png)
-
 ![mobile (4)](https://user-images.githubusercontent.com/106553998/192073065-afbe9654-ede8-413e-8447-082119f62bd8.png)
 
 #### Versión de escritorio ####
