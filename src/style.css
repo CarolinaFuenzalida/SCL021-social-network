@@ -579,7 +579,7 @@ dialog + .backdrop {
     text-align: left;
     width: 40%;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
   }
   .postDate {
     width: 55%;

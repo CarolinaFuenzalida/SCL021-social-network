@@ -62,7 +62,7 @@ const loginEmailPassword = (email, password, callback) => {
       callback(false);
       return errorCode;
     });
-}
+};
 
 // ----------- Enviar correo de verificacion
 const emailVerification = () => {
@@ -70,7 +70,7 @@ const emailVerification = () => {
     /* alert(
       'Se ha enviado un mensaje de verificación a tu correo electrónico'); */
   });
-}
+};
 
 // -----------Registrarse con Email y Contraseña
 
@@ -90,7 +90,7 @@ const registerEmailPassword = (email, password) => {
       // console.log(user);
       return errorCode;
     });
-}
+};
 
 // -------- Permite verificar si hay un usuario conectado
 
@@ -107,7 +107,7 @@ const verification = () => {
     return 'not logged';
     // location.reload();
   });
-}
+};
 
 // -------------- Cerrar sesión
 
@@ -119,7 +119,7 @@ const logOut = () => {
       alert('adiosito! vuelve pronto');
     })
     .catch((error) => error);
-}
+};
 
 // ----------- Ingreso con Google
 
@@ -148,7 +148,7 @@ const signGoogle = () => {
       // ...
       return errorCode;
     });
-}
+};
 
 // ----------- Reestablecer contraseña olvidada
 
@@ -167,11 +167,11 @@ const resetPass = (email, callback) => {
       const errorMessage = error.message;
       return errorMessage;
     });
-}
+};
 
 const db = getFirestore();
 
-//pruebita de promesas Emi
+// pruebita de promesas Emi
 
 /*
 const resetPass = (email, callback) => {
@@ -186,10 +186,10 @@ const resetPass = (email, callback) => {
     .catch((error) => {
       callback(false);
       alert('No es posible recuperar tu contrasena');
-    
+
     });
   }
-   */ 
+   */
 
 // ----------- Guardar Posts
 
@@ -211,12 +211,12 @@ const newPosts = async (textInput) => {
     location.reload();
     return docRef.uid;
   }
-}
+};
 
 // ----------- Mostrar Posts
 
 const displayPosts = async () => {
-  const posts = query(collection(db, 'google'), orderBy('date', 'desc'));
+  const posts = query(collection(db, 'google'));
   const querySnapShot = await getDocs(posts);
   const todosPosts = [];
   querySnapShot.forEach((doc) => {
@@ -273,12 +273,11 @@ const likesCountRef = (id) => {
 
 function deletePost(id) {
   deleteDoc(doc(db, 'google', id))
-    .then(() => location.reload())/*console.log('exito al borrar')) */
+    .then(() => location.reload()) /* console.log('exito al borrar')) */
     .catch((error) => console.log('error', error));
 }
 
 // ----------- Comment Post -------
-
 
 export {
   db,
