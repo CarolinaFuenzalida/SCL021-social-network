@@ -18,11 +18,7 @@
 ## Qué problema resuelve el producto / para qué le servirá a estos usuarios. 💅
   Para nuestrxs usuarixs es realmente importante poder formar parte de una comunidad gamer, por lo tanto, la razón de ser de esta plataforma es principalmente poder entablar conversaciones con amigos, conocer nuevos amigos, recomendar juegos y tener la oportunidad de poder jugar juntxs algo nuevo! 😎💜
 
-// criterios de aceptacion
-no sabo wey
 
-// definicion de terminado
-no sabo wey x2
 
 // foticos del prototipado final jeje y prototipado baja fidelidad 
 ## Nuestro proyecto 😮💜🎉
@@ -48,8 +44,17 @@ Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las vot
 
 ### Versión final 💜👾🎮
   Para el último prototipado fue necesario ir iterando diseños hasta que pudimos cumplir con los diferentes requerimientos de los usuarios.
-![mobile (1)](https://user-images.githubusercontent.com/106553998/192072919-77d0b3da-647f-474d-b69e-b48db8622b87.png)
-![mobile](https://user-images.githubusercontent.com/106553998/192072928-2648da45-db50-4c09-8efa-d15bcc44e319.png)
+
+#### Versión móvil ####
+
 ![mobile (2)](https://user-images.githubusercontent.com/106553998/192072923-291bcb46-89bd-47b8-9531-8b21261c513a.png)
+
 ![mobile (4)](https://user-images.githubusercontent.com/106553998/192073065-afbe9654-ede8-413e-8447-082119f62bd8.png)
+
+#### Versión de escritorio ####
+
+![mobile (1)](https://user-images.githubusercontent.com/106553998/192072919-77d0b3da-647f-474d-b69e-b48db8622b87.png)
+
+![mobile](https://user-images.githubusercontent.com/106553998/192072928-2648da45-db50-4c09-8efa-d15bcc44e319.png)
+
 
