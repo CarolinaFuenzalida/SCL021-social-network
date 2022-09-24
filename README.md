@@ -51,5 +51,5 @@ Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las vot
 ![mobile (1)](https://user-images.githubusercontent.com/106553998/192072919-77d0b3da-647f-474d-b69e-b48db8622b87.png)
 ![mobile](https://user-images.githubusercontent.com/106553998/192072928-2648da45-db50-4c09-8efa-d15bcc44e319.png)
 ![mobile (2)](https://user-images.githubusercontent.com/106553998/192072923-291bcb46-89bd-47b8-9531-8b21261c513a.png)
-![mobile (3)](https://user-images.githubusercontent.com/106553998/192073016-bbd16979-81fe-45f2-a2e0-d6aa5f31c9e7.png)
+![mobile (4)](https://user-images.githubusercontent.com/106553998/192073065-afbe9654-ede8-413e-8447-082119f62bd8.png)
 
