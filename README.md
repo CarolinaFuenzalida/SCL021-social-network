@@ -19,7 +19,6 @@
   Para nuestrxs usuarixs es realmente importante poder formar parte de una comunidad gamer, por lo tanto, la razón de ser de esta plataforma es principalmente poder entablar conversaciones con amigos, conocer nuevos amigos, recomendar juegos y tener la oportunidad de poder jugar juntxs algo nuevo! 😎💜
 
 
-
 ## Nuestro proyecto 😮💜🎉
 
 ### Prototipo de baja fidelidad 👌✨
@@ -32,7 +31,7 @@ Con el análisis obtenido pudimos iniciar nuestro diseño y de acuerdo a las vot
 
 #### Versión móvil ####
 
-![image](https://user-images.githubusercontent.com/106553998/192071473-7b23e120-2acd-49ad-b506-e2ec4733c9a7.png)
+![image](https://user-images.githubusercontent.com/106553998/192073652-a93af1e4-00e9-47bb-be4d-baaaaeb529a8.png)
 
 
 #### Versión de escritorio ####
