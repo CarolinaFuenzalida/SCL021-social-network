@@ -10,6 +10,7 @@ import {
 
 //  TESTS FUNCIONES REGISTRO
 //  registerEmailPassword
+
 describe(registerEmailPassword, () => {
   it(' registerEmailPassword debería ser una función', () => {
     expect(typeof registerEmailPassword).toBe('function');
@@ -18,6 +19,7 @@ describe(registerEmailPassword, () => {
 
 //  TESTS FUNCIONES LOGIN/LOGOUT
 //  loginEmailPassword
+
 describe(loginEmailPassword, () => {
   it(' loginEmailPassword debería ser una función', () => {
     expect(typeof loginEmailPassword).toBe('function');
@@ -28,11 +30,13 @@ describe(loginEmailPassword, () => {
 });
 
 // signGoogle
+
 describe(signGoogle, () => {
   it('debería ser una función', () => {
     expect(typeof signGoogle).toBe('function');
   });
 });
+
 // logOut
 describe(logOut, () => {
   it('debería ser una función', () => {
@@ -41,12 +45,14 @@ describe(logOut, () => {
 });
 
 // TESTS FUNCIONES POSTS
+
 // verification
 describe(verification, () => {
   it('debería ser una función', () => {
     expect(typeof verification).toBe('function');
   });
 });
+
 // getUserData
 describe(getUserData, () => {
   it('debería ser una función', () => {

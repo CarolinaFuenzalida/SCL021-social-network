@@ -302,15 +302,15 @@ const posts = () => {
 
   // funcion para filtrar por fecha
 
-  const filters = document.createElement('div');
+  /* const filters = document.createElement('div');
   filters.setAttribute('class', 'divfilter');
-  filters.innerHTML = ` 
+  filters.innerHTML = `
   <select id="filter" class="">
   <option class="options" value="select">Filtrar por:</option>
   <option class="options" value="recent">Más recientes</option>
   <option class="options" value="oldest">Más antiguos</option>
   </select>`;
-  inputMainContainer.appendChild(filters);
+  inputMainContainer.appendChild(filters); */
 
   /*  const filterbyDate = document.createElement('option');
   filterbyDate.setAttribute('value','filterdate');
@@ -322,6 +322,15 @@ const posts = () => {
   // Función para traer todo los datos de los posts y creación de Div para contenerlos
   displayPosts().then(
     (value) => {
+      value.sort((a, b) => {
+        // para ordenar valores numericos (criteria corresponde al parametro que se va a filtrar)
+        {
+          a = new Number(a.date.seconds);
+          b = new Number(b.date.seconds);
+          console.log(a);
+        }
+        return a === b ? 0 : a > b ? 1 : -1;
+      });
       console.log(value);
       value.forEach((doc) => {
         const postIdentifier = doc.id;
@@ -407,9 +416,9 @@ const posts = () => {
           const deleteAlert = confirm('¿Estas seguro que quieres eliminar este post?');
           if (deleteAlert == true && user == auth.currentUser.uid) {
             deletePost(id, user);
-            alert('se borró tu post');
+            alert('Tu post ha sido eliminadoc');
           } else {
-            alert('post no eliminado!');
+            alert('Post no eliminado, verifica que sea tu post');
           }
         });
 
